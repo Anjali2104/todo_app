@@ -1,24 +1,19 @@
-
-import {  useReducer} from 'react'
 import './App.css'
 import AddToDo from './components/AddToDo/AddToDo'
 import TodoList from './components/TodoList/TodoList'
-import TodoContext from './context/TodoContext'
-import TodoReducer from './reducers/TodoReducer'
+import { Provider} from 'react-redux'
+import store from './store'
 function App() {
-
-  const [todos, dispatch] = useReducer(TodoReducer, []);
- 
-
 
 
   return (
     <>
-     <TodoContext.Provider value= {{todos, dispatch}}>
+    <Provider store={store}>
+     
        <AddToDo />
        <TodoList  />
-     </TodoContext.Provider>
-    
+   
+     </Provider>
     </>
   )
 }
